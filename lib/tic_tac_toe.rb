@@ -107,9 +107,13 @@ end
 
 # Define your play method below
 def play(board)
-  plays = 0 
-  while plays <9 
-  turn(board)
-  plays+=1 
-end
+  until over?(board)
+    turn(board)
+  end
+  
+  if won?(board)
+    puts "Congrats!"
+  else draw?(board)
+    puts "Game ended in a draw!"
+  end
 end
